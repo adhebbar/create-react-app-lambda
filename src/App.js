@@ -2,7 +2,6 @@ import React from 'react';
 import './App.css';
 import { Row,  Container, Col, 
   Card,  CardBody,
-  CardTitle
  } from "reactstrap";
 
  const Message = (props) => 
@@ -10,12 +9,14 @@ import { Row,  Container, Col,
    return (
      <Card fluid className = "message-container">
                <CardBody>
-       <CardTitle>From {props.from} </CardTitle>
+       <p>From {props.from}</p>
  
      <iframe  title = {props.video} className = "video" src={props.video} ></iframe>
      {(props.pdf)? (
        <div>
+        <p>
        {props.pdf_message}
+       </p>
        <iframe title = {props.pdf} src={props.pdf} frameborder="0" height="100%" width="100%"></iframe>
        </div>
      ) : null }
@@ -37,18 +38,18 @@ function App() {
         </Col>
       </Row>
       <Row>
-        Here are a few messages we've complied for you.
+        <h2>Here are a few messages we've complied for you.</h2>
       </Row>
       <Message video = "https://drive.google.com/file/d/1FEUKBuIjerNre2u_0RIieQGX8OxJiD8L/preview" from = "Appa and Amma" />
       <Message video = "https://drive.google.com/file/d/1SfEalmD4aHhblA3lNFuk0J11BX5k--FC/preview" from = "Shahdol family" />
-      <Message video = "https://drive.google.com/file/d/1QJnfBuU0IMFQNrrecCaYkV74ZkaWeBog/preview" from = "Amrupadi family" />
+      <Message video = "https://drive.google.com/file/d/1QJnfBuU0IMFQNrrecCaYkV74ZkaWeBog/preview" from = "Kidiyur family" />
       <Message pdf={"https://drive.google.com/file/d/1JXX1sJCUHNUGZF6TQpI65yQIrGyhlMWb/preview"} pdf_message = "Letter from Yashoda Chikki"
-      video = "https://drive.google.com/file/d/13Kjhr5CJ9sKxFBJVwQuto6rNNUQxACjX/preview" from = "Kidiyur family" />
+      video = "https://drive.google.com/file/d/13Kjhr5CJ9sKxFBJVwQuto6rNNUQxACjX/preview" from = "Hubli family" />
 
       <Message pdf={"https://drive.google.com/file/d/1djo50F9o8_g5q_p41-YBuHoEK79ryPbg/preview"} pdf_message = "Poem by Amitha"
       video = "https://drive.google.com/file/d/1QbUF5VZx8JAj6O8pzDdi1rh2rdd3sLVQ/preview" from = "Surathkal family"/>
       <Row>
-        We hope you have a great year ahead :) 
+      <h2>We hope you have a great year ahead :) </h2>
       </Row>
     </Container>
   );

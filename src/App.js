@@ -11,13 +11,13 @@ import { Row,  Container, Col,
                <CardBody>
        <p>From {props.from}</p>
  
-     <iframe  title = {props.video} className = "video" src={props.video} ></iframe>
+     <iframe  title = {props.video} className = "video" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" src={props.video} allowfullscreen="true"></iframe>
      {(props.pdf)? (
        <div>
         <p>
        {props.pdf_message}
        </p>
-       <iframe title = {props.pdf} src={props.pdf} frameborder="0" height="100%" width="100%"></iframe>
+       <iframe title = {props.pdf} src={props.pdf} frameborder="0" height="100%" width="100%" allowfullscreen></iframe>
        </div>
      ) : null }
  
@@ -38,16 +38,16 @@ function App() {
         </Col>
       </Row>
       <Row>
-        <h2>Here are a few messages we've complied for you.</h2>
+        <h2>Here are a few messages we've compiled for you.</h2>
       </Row>
-      <Message video = "https://drive.google.com/file/d/1FEUKBuIjerNre2u_0RIieQGX8OxJiD8L/preview" from = "Appa and Amma" />
-      <Message video = "https://drive.google.com/file/d/1BZgBRdKNC-xCPZ2T_AYMBgA9WilnQOro/preview" from = "Shahdol family" />
-      <Message video = "https://drive.google.com/file/d/1QJnfBuU0IMFQNrrecCaYkV74ZkaWeBog/preview" from = "Kidiyur family" />
+      <Message video = "https://www.youtube.com/embed/NsaLJFNGMKo" from = "Appa and Amma" />
+      <Message video = "https://www.youtube.com/embed/-ZRmKSrDECk" from = "Shahdol family" />
+      <Message video = "https://www.youtube.com/embed/cKIQozQ86M0" from = "Kidiyur family" />
       <Message pdf={"https://drive.google.com/file/d/1JXX1sJCUHNUGZF6TQpI65yQIrGyhlMWb/preview"} pdf_message = "Letter from Yashoda Chikki"
-      video = "https://drive.google.com/file/d/13Kjhr5CJ9sKxFBJVwQuto6rNNUQxACjX/preview" from = "Hubli family" />
+      video = "https://www.youtube.com/embed/VTWvpCulZd8" from = "Hubli family" />
 
       <Message pdf={"https://drive.google.com/file/d/1djo50F9o8_g5q_p41-YBuHoEK79ryPbg/preview"} pdf_message = "Poem by Amitha"
-      video = "https://drive.google.com/file/d/1QbUF5VZx8JAj6O8pzDdi1rh2rdd3sLVQ/preview" from = "Surathkal family"/>
+      video = "https://www.youtube.com/embed/4rywGTnh89U" from = "Surathkal family"/>
       <Row>
       <h2>We hope you have a great year ahead :) </h2>
       </Row>

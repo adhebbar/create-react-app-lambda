@@ -5,28 +5,28 @@ import { Row,  Container, Col,
   CardTitle
  } from "reactstrap";
 
-const Message = (props) => 
-{
-  return (
-    <Card fluid className = "message-container">
-              <CardBody>
-      <CardTitle>From {props.from} </CardTitle>
-
-    <iframe  className = "video" src={props.video} ></iframe>
-    {(props.pdf)? (
-      <div>
-      {props.pdf_message}
-      <iframe src={props.pdf} frameborder="0" height="100%" width="100%"></iframe>
-      </div>
-    ) : null }
-
-
-    
-    </CardBody>
-
-    </Card>
-  )
-}
+ const Message = (props) => 
+ {
+   return (
+     <Card fluid className = "message-container">
+               <CardBody>
+       <CardTitle>From {props.from} </CardTitle>
+ 
+     <iframe  title = {props.video} className = "video" src={props.video} ></iframe>
+     {(props.pdf)? (
+       <div>
+       {props.pdf_message}
+       <iframe title = {props.pdf} src={props.pdf} frameborder="0" height="100%" width="100%"></iframe>
+       </div>
+     ) : null }
+ 
+ 
+     
+     </CardBody>
+ 
+     </Card>
+   )
+ }
 
 function App() {
   return (

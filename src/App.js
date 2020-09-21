@@ -1,50 +1,57 @@
-import React, { Component } from "react"
-import logo from "./logo.svg"
-import "./App.css"
+import React from 'react';
+import './App.css';
+import { Row,  Container, Col, 
+  Card,  CardBody,
+  CardTitle
+ } from "reactstrap";
 
-class LambdaDemo extends Component {
-  constructor(props) {
-    super(props)
-    this.state = { loading: false, msg: null }
-  }
+const Message = (props) => 
+{
+  return (
+    <Card fluid className = "message-container">
+              <CardBody>
+      <CardTitle>From {props.from} </CardTitle>
 
-  handleClick = api => e => {
-    e.preventDefault()
-
-    this.setState({ loading: true })
-    fetch("/.netlify/functions/" + api)
-      .then(response => response.json())
-      .then(json => this.setState({ loading: false, msg: json.msg }))
-  }
-
-  render() {
-    const { loading, msg } = this.state
-
-    return (
-      <p>
-        <button onClick={this.handleClick("hello")}>{loading ? "Loading..." : "Call Lambda"}</button>
-        <button onClick={this.handleClick("async-dadjoke")}>{loading ? "Loading..." : "Call Async Lambda"}</button>
-        <br />
-        <span>{msg}</span>
-      </p>
-    )
-  }
-}
-
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <LambdaDemo />
-        </header>
+    <iframe  className = "video" src={props.video} ></iframe>
+    {(props.pdf)? (
+      <div>
+      {props.pdf_message}
+      <iframe src={props.pdf} frameborder="0" height="100%" width="100%"></iframe>
       </div>
-    )
-  }
+    ) : null }
+
+
+    
+    </CardBody>
+
+    </Card>
+  )
 }
 
-export default App
+function App() {
+  return (
+    <Container className = "top-container" fluid>
+      <Row>
+        <Col>
+          <h1>Happy 50th Birthday, Dear Anil!</h1>
+        </Col>
+      </Row>
+      <Row>
+        Here are a few messages we've complied for you.
+      </Row>
+      <Message video = "https://drive.google.com/file/d/1FEUKBuIjerNre2u_0RIieQGX8OxJiD8L/preview" from = "Appa and Amma" />
+      <Message video = "https://drive.google.com/file/d/1SfEalmD4aHhblA3lNFuk0J11BX5k--FC/preview" from = "Shahdol family" />
+      <Message video = "https://drive.google.com/file/d/1QJnfBuU0IMFQNrrecCaYkV74ZkaWeBog/preview" from = "Amrupadi family" />
+      <Message pdf={"https://drive.google.com/file/d/1JXX1sJCUHNUGZF6TQpI65yQIrGyhlMWb/preview"} pdf_message = "Letter from Yashoda Chikki"
+      video = "https://drive.google.com/file/d/13Kjhr5CJ9sKxFBJVwQuto6rNNUQxACjX/preview" from = "Kidiyur family" />
+
+      <Message pdf={"https://drive.google.com/file/d/1djo50F9o8_g5q_p41-YBuHoEK79ryPbg/preview"} pdf_message = "Poem by Amitha"
+      video = "https://drive.google.com/file/d/1QbUF5VZx8JAj6O8pzDdi1rh2rdd3sLVQ/preview" from = "Surathkal family"/>
+      <Row>
+        We hope you have a great year ahead :) 
+      </Row>
+    </Container>
+  );
+}
+
+export default App;
